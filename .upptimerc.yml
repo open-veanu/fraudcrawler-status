@@ -1,31 +1,87 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: open-veanu
+repo: fraudcrawler-status
+user-agent: open-veanu
+
+# Only these repo secrets are passed to the checks.
+secrets:
+  - SUPABASE_PROD_ANON_KEY
+  - SUPABASE_TEST_ANON_KEY
+
+# Downtime issues are opened automatically and assigned here.
+assignees:
+  - alho94
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  # ---------- Production ----------
+  - name: "Production: Web app"
+    slug: prod-web
+    url: https://fraudcrawler.veanu.ch
+    maxResponseTime: 5000
+
+  - name: "Production: Backend API"
+    slug: prod-backend
+    url: https://confidential-fraudcrawler-backend.fly.dev/health
+    maxResponseTime: 5000
+    __dangerous__body_down_if_text_missing: '"status": "healthy"'
+    __dangerous__body_degraded_if_text_missing: '"redis_connected": true'
+
+  - name: "Production: Database & Auth"
+    slug: prod-supabase
+    url: https://hgmlcybbubypbrlcpqaq.supabase.co/auth/v1/health
+    headers:
+      - "apikey: $SUPABASE_PROD_ANON_KEY"
+    maxResponseTime: 5000
+
+  # ---------- Dev/Test (shared Supabase + Fly backend) ----------
+  - name: "Dev/Test: Web app"
+    slug: test-web
+    url: https://test.fraudcrawler.veanu.ch
+    maxResponseTime: 5000
+
+  - name: "Dev/Test: Backend API"
+    slug: test-backend
+    url: https://test-confidential-fraudcrawler-backend.fly.dev/health
+    maxResponseTime: 5000
+    __dangerous__body_down_if_text_missing: '"status": "healthy"'
+    __dangerous__body_degraded_if_text_missing: '"redis_connected": true'
+
+  - name: "Dev/Test: Database & Auth"
+    slug: test-supabase
+    url: https://ihpopzebgxgrnyeienkt.supabase.co/auth/v1/health
+    headers:
+      - "apikey: $SUPABASE_TEST_ANON_KEY"
+    maxResponseTime: 5000
+
+  # ---------- Upstream providers (degraded if they report any incident) ----------
+  - name: "Upstream: Vercel"
+    slug: upstream-vercel
+    url: https://www.vercel-status.com/api/v2/status.json
+    __dangerous__body_degraded_if_text_missing: '"indicator":"none"'
+
+  - name: "Upstream: Supabase"
+    slug: upstream-supabase
+    url: https://status.supabase.com/api/v2/status.json
+    __dangerous__body_degraded_if_text_missing: '"indicator":"none"'
+
+  - name: "Upstream: Fly.io"
+    slug: upstream-flyio
+    url: https://status.flyio.net/api/v2/status.json
+    __dangerous__body_degraded_if_text_missing: '"indicator":"none"'
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.fraudcrawler.veanu.ch
+  logoUrl: https://fraudcrawler.veanu.ch/logo.png
+  favicon: https://fraudcrawler.veanu.ch/favicon.png
+  name: Fraudcrawler Status
+  introTitle: "**Fraudcrawler** system status"
+  introMessage: Live status of the Fraudcrawler platform, plus announcements about incidents and planned maintenance.
   navbar:
     - title: Status
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+    - title: Fraudcrawler
+      href: https://fraudcrawler.veanu.ch
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+# Optional: post up/down alerts to Discord. Add these two repo secrets
+# AND list both names under `secrets:` at the top of this file:
+#   NOTIFICATION_DISCORD=true
+#   NOTIFICATION_DISCORD_WEBHOOK_URL=<webhook url>
