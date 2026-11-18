@@ -61,7 +61,7 @@ jobs:
         env:
           GH_PAT: ${{ steps.app_token.outputs.token || secrets.GH_PAT || github.token }}
           # Configure the secret allowlist in .upptimerc.yml; do not edit this workflow directly.
-          SECRETS_CONTEXT: '{"SUPABASE_PROD_ANON_KEY":${{ toJson(secrets.SUPABASE_PROD_ANON_KEY) }},"SUPABASE_TEST_ANON_KEY":${{ toJson(secrets.SUPABASE_TEST_ANON_KEY) }}}'
+          SECRETS_CONTEXT: '{"SUPABASE_PROD_ANON_KEY":${{ toJson(secrets.SUPABASE_PROD_ANON_KEY) }},"SUPABASE_TEST_ANON_KEY":${{ toJson(secrets.SUPABASE_TEST_ANON_KEY) }},"NOTIFICATION_DISCORD":${{ toJson(secrets.NOTIFICATION_DISCORD) }},"NOTIFICATION_DISCORD_WEBHOOK_URL":${{ toJson(secrets.NOTIFICATION_DISCORD_WEBHOOK_URL) }}}'
       - name: Update summary in README
         uses: upptime/uptime-monitor@v1.46.5
         with:
