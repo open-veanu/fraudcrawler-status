@@ -1,7 +1,7 @@
 url: https://www.vercel-status.com/api/v2/status.json
 status: degraded
 code: 200
-responseTime: 42
-lastUpdated: 2026-11-18T21:56:17.957Z
+responseTime: 13
+lastUpdated: 2026-11-18T21:58:40.050Z
 startTime: 2026-11-18T21:39:57.305Z
 generator: Upptime <https://github.com/upptime/upptime>
