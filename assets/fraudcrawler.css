@@ -1,5 +1,5 @@
-/* Fraudcrawler status theme: matches the app's "icy blue" palette (src/index.css) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* Fraudcrawler status theme: matches the app's "icy blue" palette (src/index.css).
+   No external font import, so visitor IPs are not sent to third parties. */
 
 :root {
   --brand: #0ea5e9;
@@ -38,7 +38,7 @@
 }
 
 body {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   background:
     radial-gradient(1200px 400px at 50% -120px, #e0f2fe 0%, rgba(224, 242, 254, 0) 70%),
