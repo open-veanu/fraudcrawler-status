@@ -73,7 +73,7 @@ sites:
   # TEMPORARY: Discord alert test, remove after
   - name: "Alert test (temporary)"
     slug: alert-test
-    url: https://github.com/open-veanu/fraudcrawler-status/alert-test-404
+    url: https://github.com/open-veanu/fraudcrawler-status
 
 status-website:
   themeUrl: https://status.fraudcrawler.veanu.ch/fraudcrawler.css
