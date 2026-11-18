@@ -69,13 +69,14 @@ sites:
     __dangerous__body_degraded_if_text_missing: '"indicator":"none"'
 
 status-website:
-  theme: light
+  themeUrl: /fraudcrawler.css
   cname: status.fraudcrawler.veanu.ch
   logoUrl: https://fraudcrawler.veanu.ch/logo.png
   favicon: https://fraudcrawler.veanu.ch/favicon.png
-  name: Fraudcrawler Status
+  name: Status
+  logoHref: /
   introTitle: "**Fraudcrawler** system status"
-  introMessage: Live status of the Fraudcrawler platform, plus announcements about incidents and planned maintenance.
+  introMessage: Real-time availability of the Fraudcrawler web app, backend and database, checked every 5 minutes. Incidents and planned maintenance are announced here.
   navbar:
     - title: Status
       href: /

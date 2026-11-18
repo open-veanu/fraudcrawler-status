@@ -1,0 +1,181 @@
+/* Fraudcrawler status theme: matches the app's "icy blue" palette (src/index.css) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --brand: #0ea5e9;
+  --brand-dark: #0369a1;
+  --ink: #0c1520;
+  --muted: #64748b;
+  --line: #e2e8f0;
+
+  --body-background-color: #f5fbff;
+  --body-text-color: var(--ink);
+  --card-background-color: #ffffff;
+  --nav-background-color: #ffffff;
+  --nav-border-bottom-color: var(--line);
+  --nav-current-border-bottom-color: var(--brand);
+  --card-border-color: var(--line);
+  --down-border-left-color: #ef4444;
+  --down-background-color: #fef2f2;
+  --degraded-border-left-color: #f59e0b;
+  --up-border-left-color: #22c55e;
+  --tag-color: #ffffff;
+  --tag-up-background-color: #22c55e;
+  --tag-down-background-color: #ef4444;
+  --tag-degraded-background-color: #f59e0b;
+  --change-background-color: var(--brand);
+  --error-button-border-color: var(--brand-dark);
+  --error-button-background-color: var(--brand);
+  --error-button-color: #ffffff;
+  --submit-button-border-color: var(--brand-dark);
+  --submit-button-background-color: var(--brand);
+  --submit-button-color: #ffffff;
+  --code-color: var(--brand-dark);
+  --code-background-color: #e0f2fe;
+  /* Shift the default teal response-time graphs to the brand blue */
+  --graph-opacity: 0.55;
+  --graph-filter: hue-rotate(35deg) saturate(1.3);
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  background:
+    radial-gradient(1200px 400px at 50% -120px, #e0f2fe 0%, rgba(224, 242, 254, 0) 70%),
+    var(--body-background-color) !important;
+}
+
+/* ---------- Navbar ---------- */
+nav {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--line) !important;
+  font-weight: 500 !important;
+}
+nav .logo img {
+  height: 2.25rem !important;
+  border-radius: 0 !important;
+}
+nav .logo div {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  background: #e0f2fe;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+nav ul a {
+  color: var(--muted);
+  padding: 1.25rem 1rem !important;
+}
+nav ul a:hover,
+nav [aria-current] {
+  color: var(--ink);
+}
+
+/* ---------- Typography ---------- */
+h1 {
+  font-size: 2.25rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  margin-top: 1rem !important;
+}
+h1 strong {
+  color: var(--brand);
+}
+h1 + p,
+h1 + div p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+h2 {
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem !important;
+}
+h3 {
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  opacity: 1 !important;
+}
+h4 {
+  font-weight: 600 !important;
+}
+a {
+  text-underline-offset: 3px;
+}
+
+/* ---------- Cards ---------- */
+article {
+  border-radius: 12px !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 1px 2px rgba(12, 21, 32, 0.04), 0 4px 16px rgba(12, 21, 32, 0.04);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+article + article {
+  margin-top: 0.75rem !important;
+}
+article.link:hover {
+  box-shadow: 0 2px 4px rgba(12, 21, 32, 0.06), 0 10px 28px rgba(14, 165, 233, 0.12);
+  transform: translateY(-1px);
+}
+article.up {
+  border-left: 4px solid var(--up-border-left-color) !important;
+}
+article.degraded {
+  border-left: 4px solid var(--degraded-border-left-color) !important;
+}
+article.down {
+  border-left: 4px solid var(--down-border-left-color) !important;
+}
+article .data {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+article .icon {
+  border-radius: 4px;
+}
+
+/* Incident banners: readable on a light background */
+article.down-active,
+article.degraded-active {
+  color: var(--ink) !important;
+}
+article.degraded-active {
+  background: #fffbeb !important;
+}
+
+.tag {
+  border-radius: 999px !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Time range selector as a segmented control */
+form.r {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem;
+}
+form.r label {
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem !important;
+  color: var(--muted);
+  cursor: pointer;
+}
+form.r input:checked + label {
+  background: var(--brand);
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+footer,
+footer a {
+  color: var(--muted);
+}
