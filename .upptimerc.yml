@@ -69,7 +69,7 @@ sites:
     __dangerous__body_degraded_if_text_missing: '"indicator":"none"'
 
 status-website:
-  themeUrl: /fraudcrawler.css
+  themeUrl: https://status.fraudcrawler.veanu.ch/fraudcrawler.css
   cname: status.fraudcrawler.veanu.ch
   logoUrl: https://fraudcrawler.veanu.ch/logo.png
   favicon: https://fraudcrawler.veanu.ch/favicon.png
