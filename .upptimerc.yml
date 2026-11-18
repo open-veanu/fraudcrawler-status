@@ -6,6 +6,8 @@ user-agent: open-veanu
 secrets:
   - SUPABASE_PROD_ANON_KEY
   - SUPABASE_TEST_ANON_KEY
+  - NOTIFICATION_DISCORD
+  - NOTIFICATION_DISCORD_WEBHOOK_URL
 
 # Downtime issues are opened automatically and assigned here.
 assignees:
@@ -83,7 +85,5 @@ status-website:
     - title: Fraudcrawler
       href: https://fraudcrawler.veanu.ch
 
-# Optional: post up/down alerts to Discord. Add these two repo secrets
-# AND list both names under `secrets:` at the top of this file:
-#   NOTIFICATION_DISCORD=true
-#   NOTIFICATION_DISCORD_WEBHOOK_URL=<webhook url>
+# Up/down alerts go to Discord via the repo secrets NOTIFICATION_DISCORD (=true)
+# and NOTIFICATION_DISCORD_WEBHOOK_URL, allowlisted under `secrets:` above.
