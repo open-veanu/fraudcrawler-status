@@ -15,7 +15,7 @@ sites:
   # ---------- Production ----------
   - name: "Production: Web app"
     slug: prod-web
-    url: https://fraudcrawler.veanu.ch
+    url: https://fraudcrawler.veanu.ch/favicon.png  # static file: bypasses geo-block (CH/DE only) in middleware.ts
     maxResponseTime: 5000
 
   - name: "Production: Backend API"
@@ -35,7 +35,7 @@ sites:
   # ---------- Dev/Test (shared Supabase + Fly backend) ----------
   - name: "Dev/Test: Web app"
     slug: test-web
-    url: https://test.fraudcrawler.veanu.ch
+    url: https://test.fraudcrawler.veanu.ch/favicon.png
     maxResponseTime: 5000
 
   - name: "Dev/Test: Backend API"
@@ -69,6 +69,7 @@ sites:
     __dangerous__body_degraded_if_text_missing: '"indicator":"none"'
 
 status-website:
+  theme: light
   cname: status.fraudcrawler.veanu.ch
   logoUrl: https://fraudcrawler.veanu.ch/logo.png
   favicon: https://fraudcrawler.veanu.ch/favicon.png
