@@ -1,7 +1,7 @@
 url: https://ihpopzebgxgrnyeienkt.supabase.co/auth/v1/health
-status: down
-code: 401
-responseTime: 52
-lastUpdated: 2026-11-18T21:39:54.172Z
+status: up
+code: 200
+responseTime: 576
+lastUpdated: 2026-11-18T21:56:01.828Z
 startTime: 2026-11-18T21:39:41.848Z
 generator: Upptime <https://github.com/upptime/upptime>
